@@ -1,0 +1,50 @@
+.form-auth form > *{
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+}
+
+.form-auth form > input{
+    font-size: 18px;
+    padding-left: 15px;
+    border-radius: 10px;
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+.form-auth form button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 10px auto;
+    font-size: 16px;
+    background-color: #21262e;
+    color: white;
+}
+
+.form-auth form{
+    background-color: #485461;
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 15px;
+    box-shadow: 5px 5px 15px #21262e;
+}
+
+.form-auth h2{
+    text-align: center;
+}
+
+.form-auth{
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

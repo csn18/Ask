@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+<nav>
+    <a href="{% url 'main' %}" class="menu-item">Главная</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'questions_list' %}" class="menu-item">Мои вопросы</a>
+        <a href="{% url 'profile' user.id %}" class="menu-item">Профиль</a>
+        <a href="{% url 'logout' %}" class="menu-item">Выйти</a>
+    {% else %}
+        <a href="{% url 'register' %}" class="menu-item">Регистрация</a>
+        <a href="{% url 'login' %}" class="menu-item">Войти</a>
+    {% endif %}
+</nav>
+
+<div class="container">
+    {% block content %}
+
+    {% endblock %}
+</div>
+
+<script src="{% static 'js/load-image.js' %}"></script>
+
+</body>
+</html>

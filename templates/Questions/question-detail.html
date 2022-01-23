@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+
+{% block content %}
+    <div>
+        {% if message %}
+            <h1>{{ message }}</h1>
+        {% endif %}
+    </div>
+
+
+    <div class="answer-form">
+        <h1 class="question-detail-name">{{ question.question_name }}</h1>
+
+        <h3 class="form-title">Ответить</h3>
+        <form class="add-answer" action="" method="POST" enctype='multipart/form-data'>
+            {% csrf_token %}
+            {{ answer_form.answer_name }}
+            <img src="" class="loaded-image">
+            <div class="answer-form-bottom">
+                <div class="answer-image-loader">
+                    <label for="file-input"></label>
+                    {{ answer_form.image }}
+                </div>
+                <button type="submit"></button>
+            </div>
+        </form>
+
+    </div>
+
+{% endblock %}

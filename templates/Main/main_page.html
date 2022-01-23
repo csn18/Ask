@@ -1,0 +1,15 @@
+{% extends 'template.html' %}
+
+{% block content %}
+    <h1>Главная страница</h1>
+    {% for user in users %}
+        <a href="{% url 'profile' user.id %}" class="profile-item">
+            <div>
+                <img src="{{ user.photo.url }}" alt="">
+            </div>
+            <div class="profile-info-text">
+                <h3>{{ user.username }}</h3>
+            </div>
+        </a>
+    {% endfor %}
+{% endblock %}
