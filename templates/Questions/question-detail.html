@@ -12,7 +12,7 @@
         <h1 class="question-detail-name">{{ question.question_name }}</h1>
 
         <h3 class="form-title">Ответить</h3>
-        <form class="add-answer" action="" method="POST" enctype='multipart/form-data'>
+        <form class="add-answer" method="POST" enctype='multipart/form-data'>
             {% csrf_token %}
             {{ answer_form.answer_name }}
             <img src="" class="loaded-image">

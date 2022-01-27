@@ -1,32 +1,35 @@
 from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from django.core.exceptions import ObjectDoesNotExist
 
 from Apps.Questions.models import Question, Answer
 from Apps.Users.models import CustomUser
 from Apps.Questions.forms import QuestionForm
 
 
+def add_question(request, pk):
+    if request.method == 'POST':
+        data = {
+            'question_name': request.POST.get('answer_name'),
+            'responsible': pk
+        }
+
+        question_form = QuestionForm(data)
+        if question_form.is_valid():
+            question_form.save()
+
+    return JsonResponse({"status": 'Success'})
+
+
 def profile(request, pk):
     answers = Answer.objects.filter(question__responsible=pk).order_by('-publication_date')
+    question_form = QuestionForm()
 
     try:
         user = CustomUser.objects.get(id=pk)
     except CustomUser.DoesNotExist:
         user = None
-    question_form = QuestionForm()
 
-    if request.method == 'POST':
-        data = {
-            'question_name': request.POST.get('question_name'),
-            'responsible': pk
-        }
-        question_form = QuestionForm(data)
-        if question_form.is_valid():
-            question_form.save()
-            message = 'Вопрос создан'
-        else:
-            message = 'Невалидные данные'
     return render(request, 'Questions/profile.html', locals())
 
 

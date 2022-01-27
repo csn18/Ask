@@ -22,12 +22,10 @@
     </div>
 
     <h3 class="form-title">Задай свой вопрос ✍🏻</h3>
-    <form class="add-question" method="POST">
+    <form class="add-question" method="POST" onsubmit="return formSubmit()">
         {% csrf_token %}
         {{ question_form.question_name }}
-        <button type="submit">
-
-        </button>
+        <button type="submit"></button>
     </form>
 
     <div class="questions">
