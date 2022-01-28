@@ -12,17 +12,15 @@ def user_questions(request):
 
 def add_answer(request, pk):
     if request.method == 'POST':
-        data = {
-            'answer_name': request.POST.get('answer_name'),
-            'question': pk,
-        }
-
-        answer_form = AnswerForm(data, request.FILES)
-
-        print(request.POST)
+        print(pk)
+        print(type(pk))
+        answer_form = AnswerForm(request.POST, request.FILES)
 
         if answer_form.is_valid():
+            answer_form.save(commit=False)
+            answer_form.question = pk
             answer_form.save()
+
             update_question = Question.objects.get(id=pk)
             update_question.closed = True
             update_question.save()

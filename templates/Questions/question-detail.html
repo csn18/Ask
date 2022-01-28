@@ -15,7 +15,7 @@
         <form class="add-answer" method="POST" enctype='multipart/form-data'>
             {% csrf_token %}
             {{ answer_form.answer_name }}
-            <img src="" class="loaded-image">
+            <img src="" class="loaded-image" alt="">
             <div class="answer-form-bottom">
                 <div class="answer-image-loader">
                     <label for="file-input"></label>
