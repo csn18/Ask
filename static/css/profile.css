@@ -52,10 +52,6 @@
     border-radius: 50%;
 }
 
-.loaded-image{
-    width: 100%;
-    border-radius: 15px;
-}
 
 .profile-item h3{
     color: white;
@@ -66,15 +62,21 @@
     padding-left: 15px;
 }
 
-.info-message{
-    background-color: #7CFC00;
-    color: darkgreen;
-    font-weight: 400;
+.success-added-info{
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0 #12151a;
+    background-color: #20262e;
+    color: #ffffff;
+    padding-left: 10px;
     text-align: center;
-    border-radius: 15px;
+    font-size: 18px;
 }
 
-.message{
-    margin: 10px;
+.success-added-info h5{
+    line-height: 50px;
 }
-

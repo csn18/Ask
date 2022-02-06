@@ -18,5 +18,5 @@ class AnswerForm(forms.ModelForm):
 
     class Meta:
         model = Answer
-        fields = ['answer_name', 'image']
+        fields = ['answer_name', 'image', 'question']
 

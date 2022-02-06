@@ -3,6 +3,7 @@
 {% block content %}
 
     <div class="questions">
+    {% if questions %}
         {% for question in questions %}
             <a href="{% url 'question_detail' question.id %}">
                 <div class="question-item">
@@ -12,4 +13,9 @@
             </a>
         {% endfor %}
     </div>
+    {% else %}
+        <div class="questions-info">
+            <h1>Вопросов пока нет</h1>
+        </div>
+    {% endif %}
 {% endblock %}

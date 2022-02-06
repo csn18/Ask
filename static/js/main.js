@@ -1,8 +1,5 @@
 'use strict';
-console.log('connect qs')
-
 const addFormQuestions = document.querySelector('.add-question')
-const addFormAnswers = document.querySelector('.add-answer')
 const inputLoadFile = document.querySelector('#file-input')
 const previewImage = document.querySelector('.loaded-image')
 
@@ -15,9 +12,8 @@ try {
 
         data.append('answer_name', document.querySelector('.qs-name').value)
 
-        console.log(data)
-        console.log(currentUrl)
-
+        document.getElementById('id_question_name').value = ''
+        QuestionSuccessAdded()
         axios.defaults.xsrfCookieName = 'csrftoken';
         axios.defaults.xsrfHeaderName = 'X-CSRFToken';
         axios.post(`${currentUrl}add/`, data)
@@ -26,30 +22,29 @@ try {
     console.log('error')
 }
 
-try {
-    addFormAnswers.addEventListener('submit', function (e) {
-        e.preventDefault()
 
-        let data = new FormData()
-        let currentUrl = document.URL
+function QuestionSuccessAdded() {
+    let block = document.createElement('div')
+    let text = document.createElement('h5')
 
+    block.classList.add('success-added-info')
+    block.classList.add('animate__animated')
+    block.classList.add('animate__bounceInLeft')
+    text.innerText = 'Вопрос был отправлен'
 
-        data.append('answer_name', document.querySelector('.as-name').value)
-        data.append('image', document.querySelector('#file-input').files[0])
+    block.appendChild(text)
+    document.querySelector('.container').append(block)
 
+    setTimeout(() => {
+        let element = document.querySelector('.success-added-info')
+        element.classList.remove('animate__bounceInLeft')
+        element.classList.add('animate__bounceOutLeft')
+    }, 2000)
 
-        axios.defaults.xsrfCookieName = 'csrftoken';
-        axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-        axios.post(`${currentUrl}add/`, data, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-    })
-} catch {
-    console.log('error')
+    setTimeout(() => {
+        document.querySelector('.success-added-info').remove()
+    }, 3500)
 }
-
 
 inputLoadFile.addEventListener('change', function () {
     const [file] = this.files
