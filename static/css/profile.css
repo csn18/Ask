@@ -1,10 +1,30 @@
 .profile-info{
 
 }
+
 .profile-header{
     display: grid;
-    grid-template-columns: 10% 30%;
+    grid-template-columns: 10% 30% 60%;
     padding: 50px 0;
+}
+
+.update-profile-btn{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    line-height: 40px;
+    float: right;
+    align-items: center;
+    color: #20262d;
+    transition: 0.3s;
+    border: 1px solid #20262d;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+.update-profile-btn:hover{
+    color: white;
+    background-color: #20262d;
 }
 
 
@@ -79,4 +99,15 @@
 
 .success-added-info h5{
     line-height: 50px;
+}
+
+.update-profile-window{
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #262e39;
+    box-shadow: 7px 7px 0 #12151a;
 }

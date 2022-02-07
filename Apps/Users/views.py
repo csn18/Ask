@@ -1,8 +1,9 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login, logout
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
-from Apps.Questions.models import Question, Answer
+from Apps.Questions.models import Answer
+from Apps.Users.forms import CustomUserForm
 from Apps.Users.models import CustomUser
 from Apps.Questions.forms import QuestionForm
 
@@ -22,8 +23,12 @@ def add_question(request, pk):
 
 
 def profile(request, pk):
+    user_authenticated = request.user
     answers = Answer.objects.filter(question__responsible=pk).order_by('-publication_date')
     question_form = QuestionForm()
+    custom_user_form = CustomUserForm()
+    pk_user = CustomUser.objects.get(id=pk).username
+    this_user = str(pk_user) == str(user_authenticated)
 
     try:
         user = CustomUser.objects.get(id=pk)

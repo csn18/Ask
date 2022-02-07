@@ -22,24 +22,49 @@
 nav{
     text-align: center;
     background-color: #20262e;
-    padding: 10px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 nav a{
     color: white;
     margin: 0 15px;
+    line-height: 50px;
 }
 
 
 body {
     color: white;
-    height: 100vh;
-    background-color: #485461;
-    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    height: 100%;
+    /*background-size: contain;*/
+    background-repeat: no-repeat;
     background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
 }
 
 button{
     cursor: pointer;
+    background-color: #20262d;
+    color: #FFFFFF;
 }
 
+input{
+    background-color: #20262d;
+    color: #FFFFFF;
+}
+
+.menu-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.menu-item img{
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    margin-right: 5px;
+}

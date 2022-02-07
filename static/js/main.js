@@ -2,6 +2,13 @@
 const addFormQuestions = document.querySelector('.add-question')
 const inputLoadFile = document.querySelector('#file-input')
 const previewImage = document.querySelector('.loaded-image')
+const updateProfileBtn = document.querySelector('.update-profile-btn')
+
+updateProfileBtn.addEventListener('click', function() {
+    let block = document.createElement('div')
+    block.classList.add('update-profile-window')
+    document.querySelector('.container').appendChild(block)
+})
 
 try {
     addFormQuestions.addEventListener('submit', function (e) {

@@ -6,8 +6,8 @@
     border-radius: 15px;
     padding: 10px;
     margin-bottom: 20px;
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: #20262d;
 }
 
 .question-item h3 {
@@ -92,10 +92,11 @@
 }
 
 .answer-form {
-    background-color: #485461;
+    background-color: #262e39;
     padding: 20px;
     margin: 20px 0;
     border-radius: 15px;
+    box-shadow: 7px 7px 0 #20272f;
 }
 
 .answer-form-bottom{
@@ -116,7 +117,7 @@
 }
 
 .answer-image-loader{
-    background-color: white;
+    background-color: #20262d;
     border-radius: 10px;
     width: 50px;
     height: 50px;
