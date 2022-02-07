@@ -17,6 +17,11 @@
                 <h1 class="username">@{{ user.username }}</h1>
                 <h3 class="name">{{ user.first_name }} {{ user.last_name }}</h3>
             </div>
+            {% if this_user %}
+                <div class="update-profile">
+                    <button class="update-profile-btn">Редактировать</button>
+                </div>
+            {% endif %}
         </div>
 
     </div>
