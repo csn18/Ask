@@ -1,10 +1,10 @@
-from django.contrib.auth import login, logout
+from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
-from backend.Apps.Questions.models import Answer
-from backend.Apps.Users.models import CustomUser
-from backend.Apps.Questions.forms import QuestionForm
+from Apps.Questions.models import Question, Answer
+from Apps.Users.models import CustomUser
+from Apps.Questions.forms import QuestionForm
 
 
 def add_question(request, pk):
