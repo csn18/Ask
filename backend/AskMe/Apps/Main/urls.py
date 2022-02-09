@@ -1,0 +1,7 @@
+from django.urls import path
+
+from Apps.Main.views import main_page
+
+urlpatterns = [
+    path('', main_page, name='main'),
+]
