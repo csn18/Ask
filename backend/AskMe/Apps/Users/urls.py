@@ -1,12 +1,11 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 
-from Apps.Users.views import profile, login_user, register, logout_user, add_question
+from Apps.Users.api import UsersList
+
+router = routers.DefaultRouter()
+router.register(r'users', UsersList)
 
 urlpatterns = [
-    path('<int:pk>/', profile, name='profile'),
-    path('<int:pk>/add/', add_question, name='add'),
-    path('login/', login_user, name='login'),
-    path('register/', register, name='register'),
-    path('logout/', logout_user, name='logout')
-
+    path('', include(router.urls))
 ]
