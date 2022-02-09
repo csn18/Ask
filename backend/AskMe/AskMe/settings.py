@@ -6,7 +6,11 @@ SECRET_KEY = 'django-insecure-og9=1)1-)c*o)%rsv(6iv-6h+&x9-41%+qvtb_t&(u3a)8_zuk
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -20,7 +24,8 @@ INSTALLED_APPS = [
     'Apps.Questions.apps.QuestionsConfig',
     'Apps.Main.apps.MainConfig',
 
-    'rest_framework'
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
@@ -31,6 +36,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
+    # 'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'AskMe.urls'
@@ -69,7 +76,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 AUTH_USER_MODEL = 'Users.CustomUser'
 
