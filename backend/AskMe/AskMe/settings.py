@@ -8,6 +8,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
 ]
@@ -25,7 +27,10 @@ INSTALLED_APPS = [
     'Apps.Main.apps.MainConfig',
 
     'rest_framework',
-
+    'djoser',
+    'rest_framework.authtoken',
+    'django_extensions',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -36,8 +41,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'corsheaders.middleware.CorsMiddleware',
-    # 'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'AskMe.urls'
@@ -57,6 +62,21 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+DJOSER = {
+    'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
+    'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
+    'ACTIVATION_URL': '#/activate/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL': False,
+    'SERIALIZERS': {},
+}
 
 WSGI_APPLICATION = 'AskMe.wsgi.application'
 
