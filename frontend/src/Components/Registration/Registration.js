@@ -1,4 +1,5 @@
 import axios from "axios";
+import './Registration.css'
 import React, {useState} from "react";
 
 export const Registration = () => {
@@ -16,10 +17,7 @@ export const Registration = () => {
         setPassword(passwordInputRef.current.value)
     }
 
-    const getToken = () => {
-        const bodyFormData = new FormData();
-        bodyFormData.append('username', username);
-        bodyFormData.append('password', password);
+    const getToken = (bodyFormData) => {
         const authorizationApi = 'http://127.0.0.1:8000/auth/token/login/'
 
         axios.post(authorizationApi, bodyFormData, {
@@ -41,14 +39,25 @@ export const Registration = () => {
             headers: {'Content-Type': 'application/json'},
         })
             .then((response) => {
-                getToken()
+                getToken(bodyFormData)
             })
     }
     return(
-        <div>
-            <input type="text" ref={userInputRef} onChange={updateStateUsername}/>
-            <input type="password" ref={passwordInputRef} onChange={updateStatePassword}/>
-            <button onClick={registrationUser}>Регистрация</button>
+        <div className='registration-form'>
+            <h2>Регистрация</h2>
+            <form action="">
+                <input type="text"
+                       ref={userInputRef}
+                       onChange={updateStateUsername}
+                       placeholder='Логин'
+                />
+                <input type="password"
+                       ref={passwordInputRef}
+                       onChange={updateStatePassword}
+                       placeholder='Пароль'
+                />
+                <button onClick={registrationUser}>Регистрация</button>
+            </form>
         </div>
     )
 }
