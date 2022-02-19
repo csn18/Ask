@@ -1,0 +1,50 @@
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.registration-form h2 {
+    padding: 20px 0;
+}
+
+.registration-form form {
+    background-color: var(--block-bg);
+    width: 30%;
+    padding: 15px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 3px 3px 10px var(--block-shadow-color);
+}
+
+input {
+    background-color: var(--input-bg);
+}
+
+button {
+    background-color: var(--btn-bg);
+    cursor: pointer;
+}
+
+input, button {
+    color: white;
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+::placeholder {
+    color: white;
+}
+
+input:focus {
+    border: 1px solid var(--btn-bg);
+}
