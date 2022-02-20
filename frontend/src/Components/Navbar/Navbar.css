@@ -1,0 +1,13 @@
+.nav-bar {
+    text-align: center;
+    background-color: #20262e;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-bar a {
+    color: white;
+    margin: 0 15px;
+    line-height: 50px;
+}

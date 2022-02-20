@@ -1,10 +1,8 @@
-import axios from "axios";
 import React, {useState} from "react";
-import './Registration.css'
+import './Authorization.css'
 import {getToken} from "../Tokens/Token";
 
-
-export const Registration = () => {
+export const Authorization = () => {
     const [username, setUsername] = useState()
     const [password, setPassword] = useState()
 
@@ -19,27 +17,20 @@ export const Registration = () => {
         setPassword(passwordInputRef.current.value)
     }
 
-    const registrationUser = () => {
+    const authorizationUser = () => {
         const bodyFormData = new FormData();
         bodyFormData.append('username', username);
         bodyFormData.append('password', password);
-
-        const registerApi = 'http://127.0.0.1:8000/auth/users/'
-
-        axios.post(registerApi, bodyFormData, {
-            headers: {'Content-Type': 'application/json'},
-        })
-            .then((response) => {
-                getToken(bodyFormData)
-            })
+        getToken(bodyFormData)
     }
+
     return (
-        <div className='registration-form'>
+        <div className='auth-form'>
             <div className='form'>
-                <h2>Регистрация</h2>
+                <h2>Авторизация</h2>
                 <input type="text" ref={userInputRef} onChange={updateStateUsername}/>
                 <input type="password" ref={passwordInputRef} onChange={updateStatePassword}/>
-                <button onClick={registrationUser}>Регистрация</button>
+                <button onClick={authorizationUser}>Войти</button>
             </div>
         </div>
     )

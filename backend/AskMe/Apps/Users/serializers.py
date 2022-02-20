@@ -4,6 +4,8 @@ from Apps.Users.models import CustomUser
 
 
 class UserSerializer(serializers.ModelSerializer):
+    photo = serializers.SerializerMethodField()
+
     class Meta:
         model = CustomUser
         fields = [
@@ -16,3 +18,8 @@ class UserSerializer(serializers.ModelSerializer):
             'age',
             'photo',
         ]
+
+    def get_photo(self, queryset):
+        request = self.context.get('request')
+        photo = queryset.photo.url
+        return request.build_absolute_uri(photo)

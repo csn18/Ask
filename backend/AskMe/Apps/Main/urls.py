@@ -1,7 +1,7 @@
-from django.urls import path
+from rest_framework import routers
 
-from Apps.Main.views import main_page
+from Apps.Main.api import TokensList
 
-urlpatterns = [
-    path('', main_page, name='main'),
-]
+router = routers.DefaultRouter()
+router.register(r'token', TokensList)
+urlpatterns = router.urls

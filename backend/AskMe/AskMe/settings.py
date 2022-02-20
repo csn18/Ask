@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -8,11 +9,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ORIGIN_ALLOW_ALL = True
-
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
+CORS_ALLOWED_ORIGIN_REGEXES = ['http://localhost:3000']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -100,5 +100,7 @@ USE_TZ = True
 AUTH_USER_MODEL = 'Users.CustomUser'
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

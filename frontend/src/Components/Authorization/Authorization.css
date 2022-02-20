@@ -1,4 +1,4 @@
-.registration-form {
+.auth-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,12 +7,12 @@
     color: white;
 }
 
-.registration-form h2 {
+.auth-form h2 {
     padding: 10px 0;
     text-align: center;
 }
 
-.registration-form .form {
+.auth-form .form {
     background-color: var(--block-bg);
     width: 30%;
     padding: 15px;
