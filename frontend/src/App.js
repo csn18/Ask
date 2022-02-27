@@ -6,6 +6,8 @@ import {Authorization} from "./Components/Authorization/Authorization";
 import {Registration} from "./Components/Registration/Registration";
 import {Route, Routes} from "react-router-dom";
 import {Main} from "./Components/Main/Main";
+import {UserProfile} from "./Components/UserProfile/UserProfile";
+import {Logout} from "./Components/Logout/Logout";
 
 function App() {
     return (
@@ -17,6 +19,8 @@ function App() {
                         ?
                         <Routes>
                             <Route path='/profile' element={<Profile/>}/>
+                            <Route path='/accounts/:id' element={<UserProfile/>}/>
+                            <Route path='/logout' element={<Logout/>}/>
                             <Route path='/' element={<Main/>}/>
                         </Routes>
                         :

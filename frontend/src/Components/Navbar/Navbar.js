@@ -1,8 +1,10 @@
 import {NavLink} from 'react-router-dom'
-import React from "react";
+import React, {useState} from "react";
 import './Navbar.css'
 
 function Navbar() {
+
+
     return (
         <div className='nav-bar'>
 
@@ -11,6 +13,7 @@ function Navbar() {
                     ?
                     <div>
                         <NavLink to='/profile'>Профиль</NavLink>
+                        <NavLink to='/logout'>Выйти</NavLink>
                         <NavLink to='/'>Главная</NavLink>
                     </div>
                     :

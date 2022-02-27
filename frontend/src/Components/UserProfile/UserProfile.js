@@ -1,25 +1,21 @@
+import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import './Profile.css'
 import axios from "axios";
 
-export const Profile = () => {
+export const UserProfile = (props) => {
+    const {id} = useParams();
     const [userInfo, setUserInfo] = useState({})
-    const userAuthId = localStorage.getItem('auth_token')
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/v1/get-user/', {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            params: {
-                'auth-token': userAuthId
-            }
-        }).then(response => setUserInfo(response.data))
-    }, []);
+        axios.get(`http://127.0.0.1:8000/api/v1/users-list/${id}`, {
+            headers: {'Content-Type': 'application/json'},
+        })
+            .then((response) => setUserInfo(response.data))
+    }, [])
 
 
     return (
-        <div>
+        <div className="profile">
             <div className="profile-header">
                 <div className="profile-image">
                     <img src={userInfo.photo} alt=""/>
@@ -27,9 +23,6 @@ export const Profile = () => {
                 <div className="profile-info">
                     <h1 className="username">@{userInfo.username}</h1>
                     <h3 className="name">{userInfo.first_name} {userInfo.last_name}</h3>
-                </div>
-                <div className="update-profile">
-                    <button className="update-profile-btn">Редактировать</button>
                 </div>
             </div>
         </div>

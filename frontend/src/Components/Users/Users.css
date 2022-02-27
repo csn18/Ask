@@ -1,0 +1,26 @@
+.user-link{
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    margin: 10px 0;
+    color: white;
+    background-color: var(--block-bg);
+}
+
+.image-user{
+    width: 10%;
+}
+
+.info-user p{
+    color: gray;
+}
+
+.info-user{
+    width: 90%;
+    padding-left: 15px;
+}
+
+.image-user img{
+    width: 100%;
+}

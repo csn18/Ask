@@ -4,7 +4,7 @@ from rest_framework import routers
 from Apps.Users.api import UsersList, GetUserByToken
 
 router = routers.DefaultRouter()
-router.register(r'users', UsersList)
+router.register(r'users-list', UsersList)
 router.register(r'get-user', GetUserByToken, basename='getByToken')
 
 urlpatterns = [

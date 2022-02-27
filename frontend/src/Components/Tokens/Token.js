@@ -1,4 +1,5 @@
 import axios from "axios";
+import {Navigate} from "react-router-dom";
 
 export const getToken = (bodyFormData) => {
     const authorizationApi = 'http://127.0.0.1:8000/auth/token/login/'
@@ -8,6 +9,9 @@ export const getToken = (bodyFormData) => {
     }).then((response) => {
         localStorage.setItem('auth_token', response.data.auth_token)
         return window.location.reload()
-
     })
+
+    return (
+        <Navigate to='/'/>
+    )
 }
